@@ -1,0 +1,18 @@
+<% include ../partials/header.ejs %>
+
+<h1>Daily Planet Eats Daily</h1>
+<h2>Articles</h2>
+<div class='articlepage'>
+    <% myArticles.forEach(function(article, id){ %>
+    <div class='articlebox'>
+        <h3><%= article.title %></h3>
+        <p><%= article.body %></p>
+        <a href='/articles/<%= id %>/edit'>Edit Content</a>
+        <form method='POST' action='/articles/<%= id %>/?_method=DELETE'>
+            <input id='deleteBtn' type='submit' value='Delete'>
+        </form>
+    </div>
+</div>
+<% }); %>
+
+<% include ../partials/footer.ejs %> 
